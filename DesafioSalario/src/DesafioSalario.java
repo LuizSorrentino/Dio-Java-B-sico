@@ -23,14 +23,13 @@ public class DesafioSalario {
             valorImposto = salario * 0.15f; 
         
         float salarioFinal = salario - valorImposto + beneficio;
-        System.out.println(salarioFinal);
+        System.out.println(String.format("%.2f", salarioFinal));
     }while (continuar());
 
     System.out.println("Finalizando Operação. Tenha um bom dia !");
 }
 
     private static boolean continuar() {
-        // TODO Auto-generated method stub
     
     System.out.println("Deseja continuar?[\"true\" para sim / \"false\" para não] ");
     @SuppressWarnings("resource")
