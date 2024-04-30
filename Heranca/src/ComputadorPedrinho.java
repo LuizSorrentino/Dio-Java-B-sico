@@ -1,23 +1,22 @@
+import apps.FacebookMessenger;
+import apps.MSNMessenger;
+import apps.ServicoMensagemInstantanea;
+import apps.Telegram;
+
 public class ComputadorPedrinho {
     public static void main(String[] args) throws Exception {
-        System.out.println("MSN");
-        MSNMessenger msn = new MSNMessenger();
-		
-		msn.enviarMensagem();
-		
-		msn.receberMensagem();
+        ServicoMensagemInstantanea smi = null;
+        String appEscolhido="msn"; 
+        
+        if(appEscolhido.equals("msn"))
+            smi = new MSNMessenger();
+        else if(appEscolhido.equals("fbm"))
+            smi = new FacebookMessenger();
+        else if(appEscolhido.equals("tlg"))
+            smi = new Telegram();
 
-        System.out.println("Facebook");
-		
-		FacebookMessenger fbm = new FacebookMessenger();
-		fbm.enviarMensagem();
-		fbm.receberMensagem();
-		
-        System.out.println("Telegram");
-
-		Telegram tlg = new Telegram();
-		tlg.enviarMensagem();
-		tlg.receberMensagem();
+        smi.enviarMensagem();
+        smi.receberMensagem();
 	}
 }
     
