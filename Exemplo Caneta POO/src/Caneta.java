@@ -5,6 +5,13 @@ public class Caneta {
     private int carga;
     private boolean tampada;
 
+    public Caneta(String modelo, float tipoPonta, String cor, int carga) {
+        this.modelo = modelo;
+        this.tipoPonta = tipoPonta;
+        this.cor = cor;
+        this.carga = carga;
+        this.tampar();
+    }
     public void status(){
         System.out.println("Qual o modelo da caneta: " + this.modelo);
         System.out.println("Qual o tipo de ponta da caneta: " + this.tipoPonta);
@@ -46,9 +53,9 @@ public class Caneta {
         this.carga = carga;
     }
 
-    public void Rabiscar(){
+    public void rabiscar(){
         if (tampada==true) {
-            Destampar();            
+            destampar();            
         }
         else if(carga==0){
             System.out.println("Recarregar tinta");
@@ -58,9 +65,9 @@ public class Caneta {
         }    
     }
 
-    public void Pintar(){
+    public void pintar(){
         if (tampada==true) {
-            Destampar();
+            destampar();
         }
         else if(carga==0){
             System.out.println("Recarregar tinta");
@@ -70,9 +77,9 @@ public class Caneta {
         }   
     }
 
-    public void Escrever(){
+    public void escrever(){
         if (tampada==true) {
-            Destampar();
+            destampar();
         }
         else if(carga==0){
             System.out.println("Recarregar tinta");
@@ -82,12 +89,12 @@ public class Caneta {
         }
     }
 
-    public void Tampar() {
+    public void tampar() {
         tampada = true;
         System.out.println("Caneta tampada");
     }
 
-    public void Destampar() {
+    public void destampar() {
         tampada = false;
         System.out.println("Caneta destampada");
     }
