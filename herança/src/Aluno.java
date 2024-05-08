@@ -4,8 +4,8 @@ public class Aluno extends Pessoa{
         super(nome, sexo, idade);
     }
     
-    private int matricula;
-    private String curso;
+    protected int matricula;
+    protected String curso;
     
     public int getMatricula() {
         return matricula;
