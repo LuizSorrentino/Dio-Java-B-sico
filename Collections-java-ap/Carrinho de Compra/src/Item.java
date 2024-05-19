@@ -1,7 +1,13 @@
-public class Item extends CarrinhodeCompras{
+public class Item{
     private String nome;
     private float preco;
     private int quantidade;
+
+    public Item(String nome, float preco, int quantidade) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
     public String getNome() {
         return nome;
     }
@@ -19,5 +25,9 @@ public class Item extends CarrinhodeCompras{
     }
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+    @Override
+    public String toString() {
+        return nome + ", preco=" + preco + ", quantidade=" + quantidade+"\n";
     }
 }
