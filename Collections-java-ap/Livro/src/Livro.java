@@ -1,9 +1,15 @@
 public class Livro {
     
-    private String ano;
+    private int ano;
     private String titulo;
     private String autor;
     
+    public Livro(String titulo, String autor, int ano) {
+        this.ano = ano;
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
     public String getAutor() {
         return autor;
     }
@@ -13,11 +19,11 @@ public class Livro {
     }
 
     
-    public String getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
@@ -27,6 +33,11 @@ public class Livro {
 
     public Livro(String titulo) {
         this.titulo = titulo;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro [titulo=" + titulo +", ano=" + ano + ", autor=" + autor + "]\n";
     }
 }
 
