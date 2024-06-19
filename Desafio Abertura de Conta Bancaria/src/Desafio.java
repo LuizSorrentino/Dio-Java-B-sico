@@ -1,36 +1,67 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Desafio {
 
-  public static void main(String[] args) {
-    // Lendo os dados de Entrada:
-    Scanner scanner = new Scanner(System.in);
-    int numeroConta = scanner.nextInt();
-    scanner.nextLine(); // Consome a quebra de linha após a entrada do número da conta
-    String nomeTitular = scanner.nextLine();
-    double saldo = scanner.nextDouble();
+    public static void main(String[] args) {
+        // Lendo os dados de Entrada:
+        Scanner scanner = new Scanner(System.in);
+        String titular = scanner.next();
+        int numeroConta = scanner.nextInt();
+        double saldo = scanner.nextDouble();
+        double taxaJuros = scanner.nextDouble();
 
-    //TODO: Criar uma instância de "ContaBancaria" com os valores de Entrada.
-    ContaBancaria contaBancaria = new ContaBancaria(numeroConta, nomeTitular, saldo);
+        ContaPoupanca contaPoupanca = new ContaPoupanca(numeroConta, titular, saldo, taxaJuros);
 
-    System.out.println("Informacoes:\n" + contaBancaria);
-    //TODO: Imprimir as informações da conta usando o objeto criado no TODO acima.
-  }
+        System.out.println("Conta Poupanca:");
+        contaPoupanca.exibirInformacoes();
+        scanner.close();
+    }
 }
 
 class ContaBancaria {
-  int numero;
-  String titular;
-  double saldo;
+    protected int numero;
+    protected String titular;
+    protected double saldo;
 
-  public ContaBancaria(int numero, String titular, double saldo) {
-    this.numero = numero;
-    this.titular = titular;
-    this.saldo = saldo;
+    public ContaBancaria(int numero, String titular, double saldo) {
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    public void exibirInformacoes() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.0");
+        System.out.println(titular);
+        System.out.println(numero);
+        System.out.println("Saldo: R$ " + decimalFormat.format(saldo));
+    }
+
+    @Override
+    public String toString() {
+      return "Conta: " + numero + "\nTitular: " + titular + "\nSaldo: R$ " + saldo;
+    }
+}
+
+class ContaPoupanca extends ContaBancaria {
+  private double taxaJuros;
+
+  public ContaPoupanca(int numero, String titular, double saldo, double taxaJuros) {
+    super(numero, titular, saldo);
+    this.taxaJuros = taxaJuros;
+    //TODO: Implementar adequadamente esta sobrecarga de construtores.
   }
 
-  @Override
-  public String toString() {
-    return "Conta: " + numero + "\nTitular: " + titular + "\nSaldo: R$ " + saldo;
-  }
+    public void exibirInformacoes() {
+        DecimalFormat decimalFormat = new DecimalFormat("#.0");
+        super.exibirInformacoes();
+        System.out.println("Taxa de juros: " + decimalFormat.format(taxaJuros));
+        
+        
+    }
+
+    @Override
+    public String toString() {
+      return "Conta: " + numero + "\nTitular: " + titular + "\nSaldo: R$ " + saldo + "\nTaxa de juros: " + taxaJuros;
+    }
 }
