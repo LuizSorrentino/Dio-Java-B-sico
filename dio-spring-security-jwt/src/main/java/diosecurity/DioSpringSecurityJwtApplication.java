@@ -1,5 +1,4 @@
-package dio_spring_security_jwt;
-
+package diosecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
