@@ -50,8 +50,4 @@ public class UserController {
         return userService.findAll();
     }
 
-    @PutMapping()
-    public ResponseEntity<User> update(@RequestBody User userToUpdate) {
-        return null;
-    }
 }
